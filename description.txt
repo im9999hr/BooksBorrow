@@ -6,4 +6,5 @@
 - for Unit test it is necessary to have same xml saved to folder C:/TestData/books.xml
 - books are represented by model BookModel.cs, controller BookController.cs
 - user who borrow books (including which book is borrowed) are represented by model BorrowedFromModel.cs, controller BorrowedFromController.cs
-- users who borrowed books are saved in Session variable to keep track how borrowed and who returned book during the session
+- users who borrowed books are saved in Session variable to keep track who borrowed and who returned the book during the session
+- Session variable is mocked in unit test
