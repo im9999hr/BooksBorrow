@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Books.Models.BookModel>
+
+@{
+    ViewBag.Title = "List";
+    string borrowReturn = "Borrow";
+}
+
+<h2>List of books</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (!item.Available)
+        {
+            borrowReturn = "Return";
+        }
+        else
+        {
+            borrowReturn = "Borrow";
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+            <td>
+                @Html.ActionLink(borrowReturn, borrowReturn, "BorrowedFrom", new { idBook = item.Id }, null) |
+                @Html.ActionLink("Details", "Details", new { idBook = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

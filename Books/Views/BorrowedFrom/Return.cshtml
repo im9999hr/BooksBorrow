@@ -1,0 +1,78 @@
+﻿@model Books.Models.BorrowedFromModel
+@{
+    ViewBag.Title = "Return the book";
+}
+
+@if (Model.Book != null)
+{
+    <h2>Return the book: @Model.Book.Title</h2>
+}
+else
+{
+    <h4>Error while returning book from user</h4>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Book is borrowed from:</h4>
+        <hr />
+
+        @Html.HiddenFor(m => m.Book.Id)
+        @Html.HiddenFor(m => m.Book.Author)
+        @Html.HiddenFor(m => m.Book.Available)
+        @Html.HiddenFor(m => m.Book.Description)
+        @Html.HiddenFor(m => m.Book.Genre)
+        @Html.HiddenFor(m => m.Book.Price)
+        @Html.HiddenFor(m => m.Book.Publish_date)
+        @Html.HiddenFor(m => m.Book.Title)
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Borrow_date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Borrow_date)
+            </dd>
+
+        </dl>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Return" class="btn btn-default" />
+            </div>
+        </div>
+        <br />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List", "Book")
+</div>

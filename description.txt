@@ -1,0 +1,9 @@
+- functionallity includes option for borrow and return the book from available xml input file
+  named book.xml (https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms762271(v=vs.85))
+- functionallity cover only one book per title (no more books of same title functionallity included)
+- MVC .NET framework C# app
+- xml input file saved in App_Data, accessed from Repository.cs
+- for Unit test it is necessary to have same xml saved to folder C:/TestData/books.xml
+- books are represented by model BookModel.cs, controller BookController.cs
+- user who borrow books (including which book is borrowed) are represented by model BorrowedFromModel.cs, controller BorrowedFromController.cs
+- users who borrowed books are saved in Session variable to keep track how borrowed and who returned book during the session
